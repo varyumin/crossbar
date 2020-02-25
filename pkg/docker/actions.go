@@ -40,9 +40,9 @@ func (d *DockerImage) GetFullImageNameWithTag() string {
 	}
 }
 
-func (d *DockerAuth) DockerPullWithAuth(image string) {
+func (d *Login) DockerPullWithAuth(image string) {
 	ctx := context.Background()
-	out, err := d.dockerClientConnect().ImagePull(ctx, image, types.ImagePullOptions{RegistryAuth: d.dockerAuth()})
+	out, err := d.dockerClientConnect().ImagePull(ctx, image, types.ImagePullOptions{RegistryAuth: d.Login()})
 	if err != nil {
 		panic(err)
 	}
@@ -50,7 +50,7 @@ func (d *DockerAuth) DockerPullWithAuth(image string) {
 	io.Copy(os.Stdout, out)
 }
 
-func (d *DockerAuth) DockerPull(image string) {
+func (d *Login) DockerPull(image string) {
 	ctx := context.Background()
 	out, err := d.dockerClientConnect().ImagePull(ctx, image, types.ImagePullOptions{})
 	if err != nil {
@@ -60,16 +60,16 @@ func (d *DockerAuth) DockerPull(image string) {
 	io.Copy(os.Stdout, out)
 }
 
-func (d *DockerAuth) DockerPushWithAuth(image string) {
+func (d *Login) DockerPushWithAuth(image string) {
 	ctx := context.Background()
-	out, err := d.dockerClientConnect().ImagePush(ctx, image, types.ImagePushOptions{RegistryAuth: d.dockerAuth()})
+	out, err := d.dockerClientConnect().ImagePush(ctx, image, types.ImagePushOptions{RegistryAuth: d.Login()})
 	if err != nil {
 		panic(err)
 	}
 	defer out.Close()
 	io.Copy(os.Stdout, out)
 }
-func (d *DockerAuth) DockerReTag(srcImage DockerImage, dstImage DockerImage) {
+func (d *Login) DockerReTag(srcImage DockerImage, dstImage DockerImage) {
 	ctx := context.Background()
 	err := d.dockerClientConnect().ImageTag(ctx, srcImage.GetFullImageNameWithTag(), dstImage.GetFullImageNameWithTag())
 	if err != nil {
@@ -78,7 +78,7 @@ func (d *DockerAuth) DockerReTag(srcImage DockerImage, dstImage DockerImage) {
 
 }
 
-func (d *DockerAuth) dockerClientConnect() *client.Client {
+func (d *Login) dockerClientConnect() *client.Client {
 	cli, err := client.NewClientWithOpts(client.FromEnv, client.WithAPIVersionNegotiation())
 	if err != nil {
 		log.Panic(err)
@@ -103,7 +103,7 @@ func ParseImageTag(image string) DockerImage {
 	return imageStruct
 }
 
-func (d *DockerAuth) DockerSaveToArchive(image string) {
+func (d *Login) DockerSaveToArchive(image string) {
 	list_image := []string{}
 	list_image = append(list_image, image)
 
@@ -136,7 +136,7 @@ func (d *DockerAuth) DockerSaveToArchive(image string) {
 	io.Copy(gw, out)
 }
 
-func (d *DockerAuth) DockerLoadFromArchive(path string) {
+func (d *Login) DockerLoadFromArchive(path string) {
 	imageArchive, err := os.Open(path)
 	if err != nil {
 		panic(err)

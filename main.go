@@ -9,14 +9,13 @@ import (
 func main() {
 	var ns k8s.AllowNamespace
 	userDocker := docker.DockerAuth{
-		URL: "docker.fabric8.ru",
+		URL:      "docker.fabric8.ru",
 		Username: "varyumin",
 		Password: "1130688W@r",
-		Email: "fake@mail.net",
+		Email:    "fake@mail.net",
 	}
 
-	userDocker.
-
+	userDocker.Login()
 
 	images := ns.GetPodsImageList(ns.GetNsFromFile("namespaces.yaml"))
 	fmt.Println(images)
