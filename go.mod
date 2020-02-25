@@ -4,8 +4,9 @@ go 1.12
 
 require (
 	github.com/Azure/go-autorest/autorest v0.10.0 // indirect
+	github.com/Microsoft/go-winio v0.4.14 // indirect
 	github.com/docker/distribution v2.7.1+incompatible // indirect
-	github.com/docker/docker v1.13.1 // indirect
+	github.com/docker/docker v1.13.1
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.4.0 // indirect
 	github.com/elazarl/goproxy v0.0.0-20180725130230-947c36da3153 // indirect
@@ -14,6 +15,8 @@ require (
 	github.com/onsi/ginkgo v1.11.0 // indirect
 	github.com/opencontainers/go-digest v1.0.0-rc1 // indirect
 	github.com/prometheus/common v0.9.1
+	github.com/sirupsen/logrus v1.4.2
+	golang.org/x/net v0.0.0-20200222125558-5a598a2470a0
 	golang.org/x/oauth2 v0.0.0-20200107190931-bf48bf16ab8d // indirect
 	golang.org/x/time v0.0.0-20191024005414-555d28b269f0 // indirect
 	gopkg.in/yaml.v2 v2.2.8
