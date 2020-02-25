@@ -1,0 +1,15 @@
+namespaces:
+  - namespace: stage-bacon
+  - namespace: stage-cdr
+  - namespace: stage-cm
+  - namespace: stage-common
+  - namespace: stage-deal
+  - namespace: stage-ds
+  - namespace: stage-ec
+  - namespace: stage-int
+  - namespace: stage-limit
+  - namespace: stage-not
+  - namespace: stage-pta
+  - namespace: stage-stopfactor
+  - namespace: stage-team
+  - namespace: stage-wsp
