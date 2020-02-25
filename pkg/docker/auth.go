@@ -14,7 +14,7 @@ type DockerAuth struct {
 	Email    string
 }
 
-func (d *DockerAuth) dockerAuth() string {
+func (d *DockerAuth) Login() string {
 	authConfig := types.AuthConfig{
 		Username: d.Username,
 		Password: d.Password,
