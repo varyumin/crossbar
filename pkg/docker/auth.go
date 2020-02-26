@@ -16,9 +16,10 @@ type DockerAuth struct {
 
 func (d *DockerAuth) Login() string {
 	authConfig := types.AuthConfig{
-		Username: d.Username,
-		Password: d.Password,
-		Email:    d.Email,
+		ServerAddress: d.URL,
+		Username:      d.Username,
+		Password:      d.Password,
+		Email:         d.Email,
 	}
 	encodedJSON, err := json.Marshal(authConfig)
 	if err != nil {

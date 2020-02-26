@@ -2,7 +2,7 @@ namespaces:
   - namespace: stage-bacon
   - namespace: stage-cdr
   - namespace: stage-cm
-  - namespace: stage-common
+#  - namespace: stage-common
   - namespace: stage-deal
   - namespace: stage-ds
   - namespace: stage-ec

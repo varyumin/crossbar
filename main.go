@@ -1,13 +1,11 @@
 package main
 
 import (
-	"fmt"
 	"github.com/varyumin/crossbar/pkg/docker"
-	"github.com/varyumin/crossbar/pkg/k8s"
 )
 
 func main() {
-	var ns k8s.AllowNamespace
+	//var ns k8s.AllowNamespace
 	userDocker := docker.DockerAuth{
 		URL:      "docker.fabric8.ru",
 		Username: "varyumin",
@@ -17,6 +15,9 @@ func main() {
 
 	userDocker.Login()
 
-	images := ns.GetPodsImageList(ns.GetNsFromFile("namespaces.yaml"))
-	fmt.Println(images)
+	//images := ns.GetPodsImageList(ns.GetNsFromFile("namespaces.yaml"))
+	//for _, img :=range images{
+	//	fmt.Println(img)
+	//}
+	//fmt.Println(images)
 }
