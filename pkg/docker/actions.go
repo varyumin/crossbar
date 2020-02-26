@@ -80,7 +80,6 @@ func (d *DockerAuth) DockerReTag(srcImage DockerImage, dstImage DockerImage) {
 	if err != nil {
 		panic(err)
 	}
-
 }
 
 func (d *DockerAuth) dockerClientConnect() *client.Client {
