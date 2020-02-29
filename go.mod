@@ -33,3 +33,7 @@ require (
 	k8s.io/utils v0.0.0-20200124190032-861946025e34 // indirect
 	sigs.k8s.io/structured-merge-diff/v3 v3.0.0-20200207200219-5e70324e7c1c // indirect
 )
+
+replace github.com/varyumin/crossbar/pkg/docker v0.0.0 => ./pkg/docker
+
+replace github.com/varyumin/crossbar/pkg/k8s v0.0.0 => ./pkg/k8s
